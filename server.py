@@ -1,8 +1,12 @@
 from flask import Flask, request
 import subprocess
 import socket
-import stress_cpu
+#import stress_cpu
+import os
 app = Flask(__name__)
+
+path = os.path.dirname(os.path.abspath(__file__))
+strees_cpu_file_path = os.path.join(path,"strees_cpu.py")
 
 @app.route('/success/<name>')
 def success(name):
@@ -10,9 +14,11 @@ def success(name):
 
 @app.route('/',methods = ['POST'])
 def run_stress_cpu():
-   p = subprocess.Popen(["python3", "/home/ubuntu/strees_cpu.py"], stdout=subprocess.PIPE, stderr=subprocess.PIPE, text=True)
+   print("running stress cpu")
+   p = subprocess.Popen(["python3",strees_cpu_file_path], stdout=subprocess.PIPE, stderr=subprocess.PIPE, text=True)
    output, errors = p.communicate()
-   print(output)
+   print(output,errors)
+   return output
 
 @app.route('/',methods = ['GET'])
 def get_seed():

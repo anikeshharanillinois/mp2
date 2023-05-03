@@ -10,7 +10,7 @@ def success(name):
 
 @app.route('/',methods = ['POST'])
 def run_stress_cpu():
-   p = subprocess.Popen(["python3", "/home/ubuntu/strees_cpu.py"], stdout=subprocess.PIPE, stderr=subprocess.PIPE, text=True)
+   p = subprocess.Popen(["python3", "./strees_cpu.py"], stdout=subprocess.PIPE, stderr=subprocess.PIPE, text=True)
    output, errors = p.communicate()
    print(output)
 

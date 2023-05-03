@@ -6,7 +6,7 @@ import os
 app = Flask(__name__)
 
 path = os.path.dirname(os.path.abspath(__file__))
-strees_cpu_file_path = os.path.join(path,"strees_cpu.py")
+strees_cpu_file_path = os.path.join(path,"stress_cpu.py")
 
 @app.route('/success/<name>')
 def success(name):

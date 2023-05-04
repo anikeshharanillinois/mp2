@@ -13,5 +13,5 @@ start_time = time.time()
 # Create as many as processes as there are CPU cores
 processes = cpu_count()
 pool = Pool(processes)
-print(pool.map(stress_cpu, [110000000, 110000000]))
+print(pool.map(stress_cpu, [1100000000, 1100000000]))
 print("time cost: ", time.time() - start_time)

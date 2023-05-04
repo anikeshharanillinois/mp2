@@ -14,7 +14,6 @@ def success(name):
 
 @app.route('/',methods = ['POST'])
 def run_stress_cpu():
-   print("running stress cpu")
    p = subprocess.Popen(["python3",strees_cpu_file_path], stdout=subprocess.PIPE, stderr=subprocess.PIPE, text=True)
    output, errors = p.communicate()
    print(output,errors)

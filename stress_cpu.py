@@ -11,7 +11,6 @@ def stress_cpu(n):
 
 start_time = time.time()
 # Create as many as processes as there are CPU cores
-print("running....")
 processes = cpu_count()
 pool = Pool(processes)
 print(pool.map(stress_cpu, [110000000, 110000000]))
